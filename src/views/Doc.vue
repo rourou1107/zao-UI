@@ -31,10 +31,6 @@
         background: lightblue;
         width: 150px;
         padding: 16px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        margin-top: 52px;
         > h2 {
             margin-bottom: 4px;
         }
@@ -47,7 +43,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            padding-top: 70px;
+            padding-top: 52px;
         }
     }
 </style>
