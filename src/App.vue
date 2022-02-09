@@ -1,14 +1,11 @@
 <template>
-  <Text />
+  <router-view />
 </template>
 
 <script>
-import Text from './components/Text.vue'
 
 export default {
   name: 'App',
-  components: {
-    Text
-  }
+  components: {}
 }
 </script>
