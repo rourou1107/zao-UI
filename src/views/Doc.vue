@@ -54,7 +54,7 @@
         }
         > main {
             flex-grow: 1;
-            padding: 16px;
+            padding: 16px 40px;
         }
     }
     aside {
