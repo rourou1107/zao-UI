@@ -1,5 +1,5 @@
 <template>
-    <button class="ui-button" :class="{[`theme-${theme}`]: theme}"><slot /></button>
+    <button class="gulu-button" :class="{[`gulu-theme-${theme}`]: theme}"><slot /></button>
 </template>
 <script lang="ts">
     export default {
@@ -17,7 +17,7 @@
     $color: #333;
     $blue: #40a9ff;
     $radius: 4px;
-    .ui-button{
+    .gulu-button{
         box-sizing: border-box;
         height: $h;
         padding: 0 12px;
