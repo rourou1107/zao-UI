@@ -23,6 +23,10 @@
     <Button theme="text" level="main">主要文字</Button>
     <Button theme="text">普通文字</Button>
     <Button theme="text" level="danger">危险文字</Button>
+    <p>示例四：disabled属性的使用</p>
+    <Button disabled>按钮</Button>
+    <Button theme="link" disabled>链接按钮</Button>
+    <Button theme="text" disabled>文字按钮</Button>
 </template>
 <script lang="ts">
     import Button from '../lib/Button.vue'
