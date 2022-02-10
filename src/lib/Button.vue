@@ -1,5 +1,8 @@
 <template>
-    <button class="gulu-button" :class="classes" :disabled="disabled"><slot /></button>
+    <button class="gulu-button" :class="classes" :disabled="disabled">
+        <span class="gulu-loadingIndicator" v-if="loading"></span>
+        <slot />
+    </button>
 </template>
 <script lang="ts">
     import { computed } from 'vue'
@@ -20,6 +23,10 @@
             disabled: {
                 type: Boolean,
                 default: false
+            },
+            loading: {
+                type: Boolean,
+                default: false
             }
         },
         setup(props) {
@@ -28,7 +35,7 @@
               return {
                   [`gulu-theme-${theme}`]: theme,
                   [`gulu-size-${size}`]: size,
-                  [`gulu-level-${level}`]: level
+                  [`gulu-level-${level}`]: level,
               }
           })
           return { classes }
@@ -149,6 +156,21 @@
             height: 20px;
             line-height: 20px;
             padding: 0 4px;
+        }
+        > .gulu-loadingIndicator {
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            margin-right: 4px;
+            border-radius: 8px;
+            border-color: $blue $blue $blue transparent;
+            border-width: 2px;
+            border-style: solid;
+            animation: gulu-spin 1s infinite ;
+        }
+        @keyframes gulu-spin {
+            0%{ transform: rotate(0deg) }
+            100%{ transform: rotate(360deg) }
         }
     }
 </style>
