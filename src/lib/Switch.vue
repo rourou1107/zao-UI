@@ -33,6 +33,7 @@
             width: $h2;
             background: #ffffff;
             border-radius: $h2 / 2;
+            transition: left 250ms;
         }
         &.checked {
             background: blue;
