@@ -20,6 +20,7 @@
     .gulu-button{
         box-sizing: border-box;
         height: $h;
+        line-height: $h;
         padding: 0 12px;
         cursor: pointer;
         display: inline-block;
@@ -40,6 +41,25 @@
         }
         &:focus {
             outline: none;
+        }
+        &::-moz-focus-inner {
+            border: 0
+        }
+        &.gulu-theme-link {
+            border-color: transparent;
+            box-shadow: none;
+            color: $blue;
+            &:hover, &:focus {
+                color: lighten($blue, 10%);
+            }
+        }
+        &.gulu-theme-text {
+            border-color: transparent;
+            box-shadow: none;
+            color: inherit;
+            &:hover, &:focus {
+                background: darken(white, 5%);
+            }
         }
     }
 </style>
