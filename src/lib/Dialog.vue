@@ -9,8 +9,8 @@
                     <p>第二行字</p>
                 </main>
                 <footer>
-                    <Button>OK</Button>
-                    <Button>Cancel</Button>
+                    <Button @click="ok">OK</Button>
+                    <Button @click="cancel">Cancel</Button>
                 </footer>
             </div>
         </div>
@@ -24,13 +24,29 @@
             visible: {
                 type: Boolean,
                 default: true
+            },
+            ok: {
+                type: Function
+            },
+            cancel: {
+                type: Function
             }
         },
         setup(props, context) {
             const close = () => {
                 context.emit('update:visible', false)
             }
-            return { close }
+            const ok = () => {
+                // props.ok?.() 等价于 props.ok && props.ok()
+                if (props.ok?.()) {
+                    close()
+                }
+            }
+            const cancel = () => {
+                props.cancel()
+                close()
+            }
+            return { close, ok, cancel }
         }
     }
 </script>

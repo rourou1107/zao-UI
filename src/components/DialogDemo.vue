@@ -1,6 +1,6 @@
 <template>
     <Button @click="toggle">切换dialog</Button>
-    <Dialog v-model:visible="visible" />
+    <Dialog v-model:visible="visible" :ok="ok" :cancel="cancel" />
 </template>
 <script lang="ts">
     import Dialog from '../lib/Dialog.vue';
@@ -13,7 +13,14 @@
             const toggle = () => {
                 visible.value = !visible.value
             }
-            return { toggle, visible }
+            const ok = () => {
+                console.log('ok');
+                return true
+            }
+            const cancel = () => {
+                console.log('cancel')
+            }
+            return { toggle, visible, ok, cancel }
         }
     }
 </script>
