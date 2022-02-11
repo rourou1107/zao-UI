@@ -3,13 +3,12 @@
         <div class="gulu-dialog-overlay" @click="onClickOverlay"></div>
         <div class="gulu-dialog-wrapper">
             <div class="gulu-dialog">
-                <header>标题 <span class="gulu-dialog-close" @click="close"></span></header>
+                <header><slot name="title" /> <span class="gulu-dialog-close" @click="close"></span></header>
                 <main>
-                    <p>第一行字</p>
-                    <p>第二行字</p>
+                    <slot name="content" />
                 </main>
                 <footer>
-                    <Button @click="ok">OK</Button>
+                    <Button @click="ok" level="main">OK</Button>
                     <Button @click="cancel">Cancel</Button>
                 </footer>
             </div>
@@ -66,7 +65,7 @@
         background: #ffffff;
         border-radius: $radius;
         box-shadow: 0 0 3px fade_out(black, 0.5);
-        min-width: 15em;
+        min-width: 20em;
         max-width: 90%;
         &-overlay {
             position: fixed;
