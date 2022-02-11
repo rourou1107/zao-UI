@@ -1,6 +1,6 @@
 <template>
     <template v-if="visible">
-        <div class="gulu-dialog-overlay"></div>
+        <div class="gulu-dialog-overlay" @click="onClickOverlay"></div>
         <div class="gulu-dialog-wrapper">
             <div class="gulu-dialog">
                 <header>标题 <span class="gulu-dialog-close" @click="close"></span></header>
@@ -30,6 +30,10 @@
             },
             cancel: {
                 type: Function
+            },
+            closeOnClickOverlay: { // 控制点击遮罩层是否可以关闭
+                type: Boolean,
+                default: true
             }
         },
         setup(props, context) {
@@ -46,7 +50,12 @@
                 props.cancel()
                 close()
             }
-            return { close, ok, cancel }
+            const onClickOverlay = () => {
+                if (props.closeOnClickOverlay) {
+                    close()
+                }
+            }
+            return { close, ok, cancel, onClickOverlay }
         }
     }
 </script>

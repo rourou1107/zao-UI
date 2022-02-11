@@ -1,6 +1,6 @@
 <template>
     <Button @click="toggle">切换dialog</Button>
-    <Dialog v-model:visible="visible" :ok="ok" :cancel="cancel" />
+    <Dialog v-model:visible="visible" :ok="ok" :cancel="cancel" :closeOnClickOverlay="false" />
 </template>
 <script lang="ts">
     import Dialog from '../lib/Dialog.vue';
