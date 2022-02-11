@@ -11,11 +11,14 @@
             </label>
         </template>
     </Dialog>
+    <br /> <br />
+    <Button @click="showDialog">一句话打开Dialog</Button>
 </template>
 <script lang="ts">
     import Dialog from '../lib/Dialog.vue';
     import Button from '../lib/Button.vue';
-    import { ref } from 'vue'
+    import { openDialog } from '../lib/openDialog'
+    import { ref, h } from 'vue'
     export default {
         components: {Button, Dialog },
         setup() {
@@ -31,7 +34,15 @@
             const cancel = () => {
                 console.log('cancel')
             }
-            return { toggle, visible, ok, cancel, inputValue }
+            const showDialog = () => {
+                openDialog({
+                    title: h('strong', {}, '标题'),
+                    content: h('div', {}, '你好'),
+                    ok() { console.log('ok2'); return true },
+                    cancel() { console.log('cancel2') }
+                })
+            }
+            return { toggle, visible, ok, cancel, inputValue, showDialog }
         }
     }
 </script>

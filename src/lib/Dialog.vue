@@ -49,7 +49,7 @@
                 }
             }
             const cancel = () => {
-                props.cancel()
+                props.cancel?.()
                 close()
             }
             const onClickOverlay = () => {
