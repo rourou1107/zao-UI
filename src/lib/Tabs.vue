@@ -12,7 +12,7 @@
 </template>
 <script lang="ts">
     import Tab from './Tab.vue'
-    import { computed, ref, watchEffect } from 'vue'
+    import { computed, ref, watchEffect, onMounted } from 'vue'
     export default  {
         props: {
             selected: {
@@ -35,13 +35,14 @@
             const select = (title: string) => {
                 context.emit('update:selected', title)
             }
-            watchEffect(() => {
-                if (selectedItem.value && indicator.value) {
+            onMounted(() => {
+                // 因为 watchEffect 会在 onMounted 之前执行一次，所以如果想让他不执行，则将 watchEffect 放在 onMounted 内执行
+                watchEffect(() => {
                     const { width, left: leftSelectedItem } = selectedItem.value.getBoundingClientRect()
                     const { left: leftNav} = nav.value.getBoundingClientRect()
                     indicator.value.style.width = width + 'px'
                     indicator.value.style.left = leftSelectedItem - leftNav + 'px'
-                }
+                })
             })
             return { defaults, titles, select, current, selectedItem, indicator, nav }
         }
