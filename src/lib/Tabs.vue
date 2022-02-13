@@ -1,6 +1,6 @@
 <template>
-    <component :is="defaults[0]" />
-    <component :is="defaults[1]" />
+    <div v-for="(t, index) in titles" :key="index">{{t}}</div>
+    <component v-for="(c, index) in defaults" :is="c" :key="index" />
 </template>
 <script lang="ts">
     import Tab from './Tab.vue'
@@ -11,7 +11,8 @@
             if (index > -1) {
                 throw Error('Tabs 子组件 必须为 Tab')
             }
-            return { defaults }
+            const titles = defaults.map(item => item.props.title)
+            return { defaults, titles }
         }
     }
 </script>
