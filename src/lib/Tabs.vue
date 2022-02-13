@@ -1,16 +1,23 @@
 <template>
     <div class="gulu-tabs">
         <div class="gulu-tabs-nav">
-            <div v-for="(t, index) in titles" :key="index" class="gulu-tabs-nav-item">{{t}}</div>
+            <div v-for="(t, index) in titles" :key="index" class="gulu-tabs-nav-item" @click="select(t)"
+                 :class="{selected: t === selected}">{{t}}</div>
         </div>
         <div class="gulu-tabs-content">
-            <component v-for="(c, index) in defaults" :is="c" :key="index" class="gulu-tabs-content-item" />
+            <component :is="current"  class="gulu-tabs-content-item" :key="current.props.title" />
         </div>
     </div>
 </template>
 <script lang="ts">
     import Tab from './Tab.vue'
+    import { computed } from 'vue'
     export default  {
+        props: {
+            selected: {
+                type: String
+            }
+        },
         setup(props, context) {
             const defaults = context.slots.default()
             const index = defaults.findIndex(item => item.type !== Tab)
@@ -18,7 +25,13 @@
                 throw Error('Tabs 子组件 必须为 Tab')
             }
             const titles = defaults.map(item => item.props.title)
-            return { defaults, titles }
+            const current = computed(() => {
+                return defaults.find(item => item.props.title === props.selected)
+            })
+            const select = (title: string) => {
+                context.emit('update:selected', title)
+            }
+            return { defaults, titles, select, current }
         }
     }
 </script>
