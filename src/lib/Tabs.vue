@@ -75,6 +75,7 @@
                 background: $blue;
                 left: 0;
                 bottom: -1px;
+                transition: all 250ms;
             }
         }
         &-content {
