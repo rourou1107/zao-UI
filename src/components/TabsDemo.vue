@@ -1,7 +1,7 @@
 <template>
     <Tabs v-model:selected="selected">
         <Tab title="标题1">Tab1</Tab>
-        <Tab title="标题2">Tab2</Tab>
+        <Tab title="标题2000">Tab2</Tab>
     </Tabs>
 </template>
 <script lang="ts">
