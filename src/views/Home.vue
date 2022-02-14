@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="topnavAndBanner">
         <Topnav />
         <div class="banner">
             <h1>Vue3 UI 框架</h1>
@@ -18,24 +18,28 @@
     }
 </script>
 <style lang="scss" scoped>
-    .banner {
-        padding: 100px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background: lightgreen;
-        > .actions{
-            padding: 8px 0;
-            a {
-                margin:0 8px;
-                background: #fff;
-                display: inline-block;
-                $h: 28px;
-                height: $h;
-                line-height: $h;
-                border-radius: $h/2;
-                padding: 0 8px;
+    $green: #02bcb0;
+    $border-radius: 4px;
+    $color: #007974;
+    .topnavAndBanner {
+        background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+        .banner {
+            padding: 100px 0;
+            color: $color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            > .actions{
+                padding: 8px 0;
+                a {
+                    margin:0 8px;
+                    background: $green;
+                    color: #ffffff;
+                    display: inline-block;
+                    border-radius: $border-radius;
+                    padding: 8px 24px;
+                }
             }
         }
     }
