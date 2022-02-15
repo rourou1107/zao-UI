@@ -58,6 +58,9 @@
             flex-wrap: nowrap;
             > li {
                 margin: 0 1em;
+                a:hover {
+                    text-decoration: none;
+                }
             }
         }
         > .toggleAside {
