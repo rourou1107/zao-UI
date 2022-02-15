@@ -11,7 +11,7 @@ export const router = createRouter({
     history,
     routes: [
         { path: '/', component: Home },
-        { path: '/Doc', component: Doc,
+        { path: '/doc', component: Doc,
             children: [
                 { path: '', component: Default },
                 { path: 'switch', component: SwitchDemo },
