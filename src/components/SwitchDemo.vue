@@ -3,7 +3,7 @@
     <div class="demo">
         <h2>{{Switch1Demo.__sourceCodeTitle}}</h2>
         <div class="demo-component">
-            <Switch1Demo />
+            <Component :is="Switch1Demo" />
         </div>
         <div class="demo-actions">
             <Button>查看代码</Button>
@@ -15,7 +15,7 @@
     <div class="demo">
         <h2>{{Switch2Demo.__sourceCodeTitle}}</h2>
         <div class="demo-component">
-            <Switch2Demo />
+            <Component :is="Switch2Demo" />
         </div>
         <div class="demo-actions">
             <Button>查看代码</Button>
@@ -31,10 +31,9 @@
     import { ref } from 'vue'
     import Button from '../lib/Button.vue';
     export default {
-        components: {Button, Switch1Demo, Switch2Demo },
+        components: {Button },
         setup() {
             const bool = ref(false)
-            console.log('Switch1Demo', Switch1Demo);
             return { bool, Switch1Demo, Switch2Demo }
         }
     }
