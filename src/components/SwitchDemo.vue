@@ -3,7 +3,7 @@
     <div class="demo">
         <h2>常规用法</h2>
         <div class="demo-component">
-            <Switch v-model:value="bool" />
+            <Switch1Demo />
         </div>
         <div class="demo-actions">
             <Button>查看代码</Button>
@@ -15,7 +15,7 @@
     <div class="demo">
         <h2>支持 disabled</h2>
         <div class="demo-component">
-            <Switch v-model:value="bool" disabled />
+            <Switch2Demo />
         </div>
         <div class="demo-actions">
             <Button>查看代码</Button>
@@ -26,11 +26,12 @@
     </div>
 </template>
 <script lang="ts">
-    import Switch from '../lib/Switch.vue'
+    import Switch1Demo from '../components/Switch1.demo.vue'
+    import Switch2Demo from '../components/Switch2.demo.vue'
     import { ref } from 'vue'
     import Button from '../lib/Button.vue';
     export default {
-        components: {Button, Switch },
+        components: {Button, Switch1Demo, Switch2Demo },
         setup() {
             const bool = ref(false)
             return { bool }
