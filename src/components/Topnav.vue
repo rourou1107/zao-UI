@@ -1,5 +1,5 @@
 <template>
-    <div class="topnav">
+    <div class="topnav" :class="{background: toggleMenuButtonVisible }">
         <router-link class="logo" to="/">
             <svg class="icon">
                 <use xlink:href="#icon-logo"></use>
@@ -76,6 +76,9 @@
             > .menu{display: none;}
             > .logo{margin: 0 auto;}
             > .toggleAside {display: inline-block;}
+            &.background {
+                background: #fbf7f7;
+            }
         }
     }
 </style>

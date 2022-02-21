@@ -71,7 +71,6 @@
     }
     .features {
         margin: 64px auto;
-        width: 400px;
         @media (min-width: 800px) {
             width: 800px;
         }
@@ -81,8 +80,8 @@
         > ul {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-around;
             > li {
-                width: 400px;
                 margin: 16px 0;
                 display: grid;
                 justify-content: start;
@@ -103,6 +102,12 @@
                 }
                 > p {
                     grid-area: text;
+                }
+            }
+            @media (max-width:800px) {
+                & {
+                    justify-content: flex-start;
+                    margin-left: 32px;
                 }
             }
         }
