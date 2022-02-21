@@ -1,7 +1,6 @@
 import { createWebHashHistory, createRouter } from 'vue-router'
 import Home from './views/Home.vue'
 import Doc from './views/Doc.vue'
-import Default from './components/Default.vue'
 import SwitchDemo from './components/SwitchDemo.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import DialogDemo from './components/DialogDemo.vue'
@@ -18,7 +17,7 @@ export const router = createRouter({
         { path: '/', component: Home },
         { path: '/doc', component: Doc,
             children: [
-                { path: '', component: Default },
+                { path: '', redirect: '/doc/intro' },
                 { path: 'intro', component: h(Markdown, { path: markdown('intro'), key: 'intro' }) },
                 { path: 'install', component: h(Markdown, { path: markdown('install'), key: 'install' }) },
                 { path: 'get-started', component: h(Markdown, { path: markdown('get-started'), key: 'get-started' }) },
